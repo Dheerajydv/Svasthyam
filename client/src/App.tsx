@@ -10,6 +10,7 @@ import MedicalRecordForm from "./components/MedicalRecordForm";
 import SignInPage from "./components/SignInPage";
 import LoginPage from "./components/LoginPage";
 import AllReports from "./components/AllReports";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 const App = () => {
     return (
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path="/sign-in" element={<SignInPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/reports" element={<AllReports />} />
+                <Route path="/404-not-found" element={<ErrorPage />} />
             </Routes>
             <Footer />
         </div>

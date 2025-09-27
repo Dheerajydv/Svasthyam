@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import Report from "./Report";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export interface ICardData {
     __v: 0;
@@ -25,6 +26,7 @@ export default function AllReports() {
     const [cardData, setCardData] = useState<ICardData[] | null>([]);
     const [loading, setLoading] = useState(false);
     const [refreshTrigger, setRefreshTrigger] = useState(0);
+    const navigate = useNavigate();
 
     const getAllReports = async () => {
         setLoading(true);
@@ -40,6 +42,7 @@ export default function AllReports() {
         } catch (error: any) {
             console.log(error);
             toast.error(error.response.data.error.message);
+            navigate("404-not-found");
         } finally {
             setLoading(false);
         }
